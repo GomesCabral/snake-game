@@ -23,11 +23,19 @@ class Snake():
      # CREATE A SNAKE 1TURTLE = 20 WIDTH AND 20 HEIGHT
     def create_snake(self):
         for position in START_POSITIONS:
-            new_snake = Turtle('square')
-            new_snake.color('white')
-            new_snake.penup()
-            new_snake.goto(position)
-            self.segments.append(new_snake)
+            self.add_segment(position)
+
+#INCREASE THE SNAKE BODY
+    def add_segment(self, position):
+        new_snake = Turtle('square')
+        new_snake.color('white')
+        new_snake.penup()
+        new_snake.goto(position)
+        self.segments.append(new_snake)
+
+    # INCREASE THE SNAKE BODY
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
 
     # MOVE THE BODY AND MAKE THE BODY FOLLOW THE HEAD
     def move(self):
