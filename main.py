@@ -2,6 +2,7 @@ import time
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 
 
 #CREATE 600X600 SCREEN
@@ -28,6 +29,8 @@ my_screen.onkey(snake.right, "Right")
 #Food
 food = Food()
 
+#Scoreboard
+scoreboard = Scoreboard()
 
 game_is_on = True
 
@@ -36,10 +39,12 @@ while game_is_on:
     time.sleep(0.1)
     # MOVE THE BODY AND MAKE THE BODY FOLLOW THE HEAD
     snake.move()
+    scoreboard
 
     #Collisin with food
     if snake.head.distance(food) < 17:
         food.refresh()
+        scoreboard.increase_scrore()
 
 
 
